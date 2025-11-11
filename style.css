@@ -1,38 +1,75 @@
 :root {
-  --bg-color: #e3f2fd;
+  --card-bg: white;
   --text-color: #1a237e;
   --accent-color: #1976d2;
   --error-color: #d32f2f;
 }
 
+/* 🌤️ Global Styles */
 body {
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(180deg, #bbdefb, #e3f2fd);
+  background-image: url("https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1350&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--text-color);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
+  transition: background-image 1s ease-in-out, background-color 1s ease-in-out;
 }
 
-.container {
-  background-color: white;
+body.dark-mode {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+/* 🌓 Optional dark overlay for readability */
+body.dark-mode::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: -1;
+}
+
+/* 💡 App Container */
+.app {
+  background-color: var(--card-bg);
   border-radius: 20px;
   padding: 2rem;
   width: 350px;
   text-align: center;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
-h1 {
-  color: var(--accent-color);
-  margin-bottom: 1.5rem;
+.dark-mode .app {
+  background-color: #1e293b;
 }
 
+/* 🔘 Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#darkModeToggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* 🔍 Search Box */
 .search-box {
   display: flex;
   gap: 10px;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem 0;
 }
 
 input {
@@ -59,6 +96,7 @@ button:hover {
   background-color: #0d47a1;
 }
 
+/* 🌦️ Weather Card */
 .weather-card {
   margin-top: 1rem;
   background-color: #f5f9ff;
@@ -67,11 +105,16 @@ button:hover {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
+.dark-mode .weather-card {
+  background-color: #334155;
+}
+
 .weather-card img {
   width: 80px;
   margin: 10px 0;
 }
 
+/* ⚠️ Error Message */
 .error-message {
   color: var(--error-color);
   font-weight: 600;
@@ -80,4 +123,21 @@ button:hover {
 
 .hidden {
   display: none;
+}
+
+/* 📱 Responsive */
+@media (max-width: 480px) {
+  .app {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  input {
+    font-size: 0.9rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
 }
