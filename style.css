@@ -1,0 +1,83 @@
+:root {
+  --bg-color: #e3f2fd;
+  --text-color: #1a237e;
+  --accent-color: #1976d2;
+  --error-color: #d32f2f;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #bbdefb, #e3f2fd);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: white;
+  border-radius: 20px;
+  padding: 2rem;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+}
+
+.search-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #90caf9;
+  outline: none;
+  font-size: 1rem;
+}
+
+button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #0d47a1;
+}
+
+.weather-card {
+  margin-top: 1rem;
+  background-color: #f5f9ff;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.weather-card img {
+  width: 80px;
+  margin: 10px 0;
+}
+
+.error-message {
+  color: var(--error-color);
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none;
+}
